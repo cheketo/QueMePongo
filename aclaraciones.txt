@@ -1,3 +1,8 @@
-Utilicé el patrón Template para que las prendas puedan pertenecer a una categoría y luego poder validarlas al ser cargadas en el atuendo utilizando el método getCategoria() de la prenda que se vaya a cargar.
 
-Todavía no entiendo bien como se valida y se muestran los errores pero asumo que hice una validación medianamente correcta.
+Utilicé el patrón Template para que las prendas puedan pertenecer a una categoría y 
+luego poder validarlas al ser cargadas en el atuendo utilizando el método getCategoria()
+de la prenda que se vaya a cargar.
+
+Todavía no entiendo bien como se valida y se muestran los errores pero asumo que hice una 
+validación medianamente correcta.
+
