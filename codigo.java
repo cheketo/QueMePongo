@@ -54,7 +54,12 @@ public abstract class Prenda {
 	Color colorSecundario;
 	String material;
 	String tipo;
-	Categoria categoria;
+	Prenda( String tipo, String material, Color color )
+	{
+		this.tipo = tipo;
+		this.material = material;
+		this.colorPrincipal = color;
+	}
 	public abstract Categoria getCategoria();
 	public void setColorSecundario( Color color ) {
 		this.colorSecundario = color;
@@ -69,68 +74,40 @@ public abstract class Prenda {
 	public void validarDatos() {
 		if( this.getTipo() == null || this.getColorPrincipal() == null || this.getMaterial() == null )
 		{
-			throw new PrendaInvalida( "No fue posible agregar la prenda. Verifique que el tipo, el materia y el color principal de la prenda estén completos " );
+			throw new PrendaInvalida( "No fue posible agregar la prenda. Verifique que el tipo, el material y el color principal de la prenda estén completos " );
 		}
 	}
 }
 
 class PrendaSuperior extends Prenda {
-	PrendaSuperior( String tipo, String material, Color color )
-	{
-		this.tipo = tipo;
-		this.material = material;
-		this.colorPrincipal = color;
-		this.categoria = Categoria.SUPERIOR;
-	}
 	public Categoria getCategoria() {
 		return Categoria.SUPERIOR;
 	}
 }
 
 class PrendaInferior extends Prenda {
-	PrendaInferior( String tipo, String material, Color color )
-	{
-		this.tipo = tipo;
-		this.material = material;
-		this.colorPrincipal = color;
-		this.categoria = Categoria.INFERIOR;
-	}
 	public Categoria getCategoria() {
 		return Categoria.INFERIOR;
 	}
 }
 
 class PrendaCalzado extends Prenda {
-	PrendaCalzado( String tipo, String material, Color color )
-	{
-		this.tipo = tipo;
-		this.material = material;
-		this.colorPrincipal = color;
-		this.categoria = Categoria.CALZADO;
-	}
 	public Categoria getCategoria() {
 		return Categoria.CALZADO;
 	}
 }
 
 class PrendaAccesorio extends Prenda {
-	PrendaAccesorio( String tipo, String material, Color color )
-	{
-		this.tipo = tipo;
-		this.material = material;
-		this.colorPrincipal = color;
-		this.categoria = Categoria.ACCESORIO;
-	}
 	public Categoria getCategoria() {
 		return Categoria.ACCESORIO;
 	}
 }
 
 // Ejecución
-PrendaInferior pantalonRojo = new PrendaInferior( "Pantalon", "Materiales.GABARDINA", Color.ROJO );
+PrendaInferior pantalonRojo = new PrendaInferior( "Pantalón", "Materiales.GABARDINA", Color.ROJO );
 pantalonRojo.setColorSecundario( Color.NEGRO );
 Atuendo atuendo = new Atuendo();
-atuendo.agregarParteSuperior( pantalonRojo );
-atuendo.agregarParteInferior( pantalonRojo );
-atuendo.agregarCalzado( pantalonRojo );
-atuendo.agregarAccesorio( pantalonRojo );
+atuendo.agregarParteSuperior( pantalonRojo ); // Muestra error
+atuendo.agregarParteInferior( pantalonRojo ); // OK
+atuendo.agregarCalzado( pantalonRojo ); // Muestra error
+atuendo.agregarAccesorio( pantalonRojo ); // Muestra error
